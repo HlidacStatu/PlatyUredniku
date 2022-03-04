@@ -1,0 +1,21 @@
+services:
+  platy_cz:
+      build:
+        context: ./
+        dockerfile: Dockerfile
+      container_name: platy_cz
+      ports:
+        - 8032:80
+      restart: always
+  platy_cz_db:
+    image: mariadb:10.1.38
+    container_name: platy_cz_db
+    restart: always
+    environment:
+      MARIADB_ROOT_PASSWORD: rootPassword
+  platy_cz_adminer:
+    image: adminer
+    container_name: platy_cz_adminer
+    restart: always
+    ports:
+      - 8033:8080

@@ -1,0 +1,120 @@
+@media print {
+	* {
+		color: Black !important;
+		background-color: White !important;
+		text-shadow: none !important;
+		background: transparent !important;
+	}
+	html, body {
+		color: Black !important;
+		background-color: White !important;
+		font-size: 11pt;
+	}
+	a {
+		color: Black !important;
+		background-color: White !important;
+	}
+	*, *:before, *:after {
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		box-sizing: border-box;
+		-webkit-background-clip: padding-box;
+		-moz-background-clip: padding;
+		background-clip: padding-box;
+	}
+	img {
+		-webkit-box-sizing: content-box;
+		-moz-box-sizing: content-box;
+		box-sizing: content-box;
+	}
+	@page {
+		margin: 0.5cm;
+	}
+	.topBar, .topCont, .topNav, .hidden, .menu, .leftCol, .rightCol, .zal, .footer, #nav, #menu, #left, .zapati, .potvrzeni, #top, #right, div#submenu, .banner, .ban-top, .ban2, #login, #topnav, #supernav, #drobky, object, #flash, .zapati, .search, #pata, #search, .drobky, #mutace, .mutace, .submenu, #submenu, form, .noprint, .banner, #banner-top, .banner-top, video, nav {
+		display: none;
+	}
+	/*div#head .hidden{ position: static; top: auto; left: auto; font-size: 20pt; font-weight: bold;  display: block;}*/
+	.tab {
+		border-collapse: collapse;
+		font-size: 1em;
+	}
+	.tab td, .tab th {
+		border: 1px solid silver;
+	}
+	input, textarea, select {
+		font-size: 1em;
+	}
+	img {
+		float: left;
+		margin: 0 2em .5em 0;
+	}
+	a img {
+		border: 0;
+	}
+	h1, h2, h3, .main, .lomic {
+		clear: both;
+	}
+	h1, h2, h3, h4, h5, h6 {
+		page-break-after: avoid;
+		font-family: inherit;
+		font-weight: bold;
+		margin: .4em 0;
+	}
+	h1 {
+		font-size: 15pt;
+		margin: 15pt 0 3pt 0;
+	}
+	h2 {
+		font-size: 14pt;
+		margin: 15pt 0 6pt 0;
+	}
+	h3 {
+		font-size: 13pt;
+		margin: 15pt 0 4pt 0;
+	}
+	h4 {
+		font-size: 12pt;
+		margin: 15pt 0 3pt 0;
+	}
+	h5 {
+		font-size: 11pt;
+		margin: 15pt 0 2pt 0;
+	}
+	h6 {
+		font-size: 10pt;
+		margin: 15pt 0 2pt 0;
+	}
+	hr {
+		height: 1px;
+		color: gray;
+		background: gray;
+		clear: both;
+		margin: 0;
+		padding: 0;
+		border: 0;
+	}
+	img, ul, ol {
+		page-break-inside: avoid;
+	}
+	.obr, .obr-left {
+		float: left;
+		margin: 0px 10px 5px 0;
+		display: inline;
+	}
+	.obr2, .obr-right {
+		float: right;
+		margin: 0px 0px 5px 10px;
+		display: inline;
+	}
+	.obr3, .obr-center {
+		float: none;
+		margin: 0px auto 12px auto;
+		display: block;
+	}
+	.obr-text {
+		vertical-align: text-bottom;
+	}
+	.lomic {
+		clear: both;
+	}
+}

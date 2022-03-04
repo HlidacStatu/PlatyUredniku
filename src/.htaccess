@@ -1,0 +1,61 @@
+#php_flag opcache.enable Off
+
+#php_flag display_startup_errors on
+#php_flag display_errors on
+#php_flag html_errors on
+
+
+RewriteEngine on
+
+
+
+
+RewriteCond %{HTTPS} off
+# First rewrite to HTTPS:
+# Don't put www. here. If it is already there it will be included, if not
+# the subsequent rule will catch it.
+# RewriteRule .* https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+# Now, rewrite any request to the wrong domain to use www.
+
+
+
+RewriteCond %{HTTP_HOST} ^platytopuredniku.cz [NC]
+RewriteRule ^(.*)$ http://www.platytopuredniku.cz/$1 [L,R=301,NC]
+
+
+
+RewriteCond %{HTTP_HOST} ^platytopuredniku-cz.dempsey.netservis.cz [NC]
+RewriteRule ^(.*)$ http://www.platytopuredniku.cz/$1 [L,R=301,NC]
+
+
+RewriteCond  %{REQUEST_URI}  ^/sitemap.xml$
+RewriteRule .*$ /sitemap.php [L,QSA]
+
+RewriteRule ^(admin|files|fonts|img|layout|scripts|src|style|styly|facebook)($|/) - [L]
+
+RewriteCond  %{HTTP_HOST}  ^[0-9a-zA-Z-]*
+RewriteCond  %{REQUEST_URI}  ^/([0-9a-zA-Z-]*)$
+RewriteRule ([0-9a-zA-Z-]*)$ /index.php?p=$1 [L,QSA]
+
+
+RewriteCond  %{HTTP_HOST}  ^[0-9a-zA-Z-]*
+RewriteCond  %{REQUEST_URI}  ^/([0-9a-zA-Z-]*)/([0-9a-zA-Z-]*)/([0-9a-zA-Z-]*)/([0-9a-zA-Z-]*)
+RewriteRule ([0-9a-zA-Z-]*)/([0-9a-zA-Z-]*)/([0-9a-zA-Z-]*)/([0-9a-zA-Z-]*) /index.php?p=$1&rew=$2&cat=$3&det=$4 [L,QSA]
+
+RewriteCond  %{HTTP_HOST}  ^[0-9a-zA-Z-]*
+RewriteCond  %{REQUEST_URI}  ^/([0-9a-zA-Z-]*)/([0-9a-zA-Z-]*)/([0-9a-zA-Z-]*)
+RewriteRule ([0-9a-zA-Z-]*)/([0-9a-zA-Z-]*)/([0-9a-zA-Z-]*) /index.php?p=$1&rew=$2&cat=$3 [L,QSA]
+
+
+RewriteCond  %{HTTP_HOST}  ^[0-9a-zA-Z-]*
+RewriteCond  %{REQUEST_URI}  ^/([0-9a-zA-Z-]*)/([0-9a-zA-Z-]*)/
+RewriteRule ([0-9a-zA-Z-]*)/([0-9a-zA-Z-]*) /index.php?p=$1&rew=$2 [L,QSA]
+
+
+RewriteCond  %{HTTP_HOST}  ^[0-9a-zA-Z-]*
+RewriteCond  %{REQUEST_URI}  ^/([0-9a-zA-Z-]*)/([0-9a-zA-Z-]*)
+RewriteRule ([0-9a-zA-Z-]*)/([0-9a-zA-Z-]*) /index.php?p=$1&rew=$2 [L,QSA]
+
+RewriteCond  %{HTTP_HOST}  ^[0-9a-zA-Z-]*
+RewriteCond  %{REQUEST_URI}  ^/([0-9a-zA-Z-]*)/
+RewriteRule ([0-9a-zA-Z-]*) /index.php?p=$1 [L,QSA]
